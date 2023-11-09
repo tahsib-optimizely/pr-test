@@ -16,6 +16,7 @@ jobs:
       - name: Update PR Templates
         run: | 
           git submodule add https://github.com/tahsib-optimizely/pr-templates.git pr-templates
+          mkdir -p .github/PULL_REQUEST_TEMPLATE
           cp -rf ./pr-templates/* .github/PULL_REQUEST_TEMPLATE/
           
       - name: Cleanup submodule

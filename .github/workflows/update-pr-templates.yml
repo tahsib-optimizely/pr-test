@@ -22,13 +22,13 @@ jobs:
       - name: Update PR Templates
         run: | 
           git submodule add https://github.com/tahsib-optimizely/pr-templates.git pr-templates
-          chmod +x ./pr-template/sync.sh
-          bash ./pr-template/sync.sh ${{ github.event.inputs.env }}
+          chmod +x ./pr-templates/sync.sh
+          bash ./pr-templates/sync.sh ${{ github.event.inputs.env }}
 
       - name: Clean Up Submodule
         run: |
-          chmod +x ./pr-template/cleanup.sh
-          bash ./pr-template/cleanup.sh
+          chmod +x ./pr-templates/cleanup.sh
+          bash ./pr-templates/cleanup.sh
         
       - name: Push to new-pr-template branch
         uses: stefanzweifel/git-auto-commit-action@v5

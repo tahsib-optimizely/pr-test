@@ -23,7 +23,7 @@ jobs:
         run: | 
           git submodule add https://github.com/tahsib-optimizely/pr-templates.git pr-templates
           chmod +x ./pr-templates/sync.sh
-          bash ./pr-templates/sync.sh ${{ github.event.inputs.env }}
+          bash ./pr-templates/sync.sh ${{ inputs.repo-type }}
 
       - name: Clean Up Submodule
         run: |

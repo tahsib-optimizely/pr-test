@@ -42,3 +42,5 @@ jobs:
 
       - name: release PR
         uses: google-github-actions/release-please-action@v3
+        with:
+          release_type: simple

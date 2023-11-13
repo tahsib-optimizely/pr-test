@@ -22,8 +22,9 @@ jobs:
       - name: Update PR Templates
         run: | 
           git submodule add https://github.com/tahsib-optimizely/pr-templates.git pr-templates
-          chmod +x ./pr-templates/sync.sh
-          bash ./pr-templates/sync.sh ${{ inputs.repo-type }}
+          cd pr-templates
+          chmod +x ./sync.sh
+          bash ./sync.sh ${{ inputs.repo-type }}
 
       - name: Clean Up Submodule
         run: |

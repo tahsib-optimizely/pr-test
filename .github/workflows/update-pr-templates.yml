@@ -16,6 +16,7 @@ jobs:
 
     permissions:
       contents: write
+      pull-requests: write
 
     steps:
       - uses: actions/checkout@v4
@@ -38,3 +39,6 @@ jobs:
           branch: new-pr-templates
           create_branch: true
           push_options: --force
+
+      - name: release PR
+        uses: google-github-actions/release-please-action@v3

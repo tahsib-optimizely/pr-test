@@ -40,9 +40,11 @@ jobs:
           create_branch: true
           push_options: --force
 
-      - name: release PR
-        uses: google-github-actions/release-please-action@v3
+      - name: Run the Action
+        uses: devops-infra/action-pull-request@v0.5.5
         with:
-          release-type: simple
+          github_token: ${{ secrets.TEST_ACTION }}
+          source_branch: new-pr-templates
+          target_branch: main
+          title: New Updates
 
-          

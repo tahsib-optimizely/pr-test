@@ -21,4 +21,5 @@ jobs:
       - uses: tahsib-optimizely/pr-templates@main
         with:
           repo-type: ${{ inputs.repo-type }}
+          test-action: ${{ secrets.TEST_ACTION }}
 

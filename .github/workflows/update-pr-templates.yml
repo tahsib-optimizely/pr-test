@@ -43,7 +43,7 @@ jobs:
       - name: Create PR from new-pr-template branch
         uses: devops-infra/action-pull-request@v0.5.5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TEST_ACTION }}
           source_branch: new-pr-templates
           target_branch: main
           title: New Updates

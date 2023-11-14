@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: tahsib-optimizely/pr-templates@main
+      - uses: tahsib-optimizely/sre-default-github-action@main
         with:
           repo-type: ${{ inputs.repo-type }}
           test-action: ${{ secrets.TEST_ACTION }}

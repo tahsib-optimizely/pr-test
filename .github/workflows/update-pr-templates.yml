@@ -4,11 +4,9 @@ on:
     inputs:
       repo-type:
         required: true
-        type: choice
         description: Repo Type
-        options:
-          - terraform
-          - chef
+        default: 'terraform'
+        
       
 jobs:
   pr-template-update:
@@ -20,31 +18,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Update PR Templates
-        run: | 
-          git submodule add https://github.com/tahsib-optimizely/pr-templates.git pr-templates
-          cd pr-templates
-          chmod +x ./sync.sh
-          bash ./sync.sh ${{ inputs.repo-type }}
-
-      - name: Clean Up Submodule
-        run: |
-          chmod +x ./pr-templates/cleanup.sh
-          bash ./pr-templates/cleanup.sh
-        
-      - name: Push to new-pr-template branch
-        uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: tahsib-optimizely/pr-templates@main
         with:
-          commit_message: pr-templates-updated
-          branch: new-pr-templates
-          create_branch: true
-          push_options: --force
-
-      - name: Create PR from new-pr-template branch
-        uses: devops-infra/action-pull-request@v0.5.5
-        with:
-          github_token: ${{ secrets.TEST_ACTION }}
-          source_branch: new-pr-templates
-          target_branch: main
-          title: New Updates
+          repo-type: ${{ inputs.repo-type }}
 

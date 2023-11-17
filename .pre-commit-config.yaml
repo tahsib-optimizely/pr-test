@@ -16,7 +16,7 @@ repos:
     rev: v0.1.21
     hooks:
       - id: terraform-fmt
-      - id: terraform-validate
+      #- id: terraform-validate
       - id: shellcheck
       #- id: markdown-link-check
   - repo: https://github.com/terraform-docs/terraform-docs

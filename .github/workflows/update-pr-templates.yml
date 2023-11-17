@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: optimizely/sre-metadata-github-action@main
+      - uses: tahsib-optimizely/sre-metadata-github-action@main
         with:
           repository-type: ${{ inputs.repo-type }}
           github-token: ${{ secrets.TEST_ACTION }}

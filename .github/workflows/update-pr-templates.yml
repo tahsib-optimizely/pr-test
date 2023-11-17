@@ -1,4 +1,4 @@
-name: Update PR Templates
+name: Update Common Files
 on:
   workflow_dispatch:
     inputs:
@@ -6,10 +6,12 @@ on:
         required: true
         description: Repo Type
         default: 'terraform'
+      pre-commit-config:
+        description: 'Name of the pre-commit-config file for your repository'
         
       
 jobs:
-  pr-template-update:
+  update-common-files:
     runs-on: ubuntu-latest
 
     permissions:
@@ -18,8 +20,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: tahsib-optimizely/sre-default-github-action@main
+      - uses: optimizely/sre-metadata-github-action@main
         with:
-          repo-type: ${{ inputs.repo-type }}
-          test-action: ${{ secrets.TEST_ACTION }}
-
+          repository-type: ${{ inputs.repo-type }}
+          github-token: ${{ secrets.TEST_ACTION }}
+          pre-commit-config: ${{ inputs.pre-commit-config }}

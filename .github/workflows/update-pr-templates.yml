@@ -4,10 +4,11 @@ on:
     inputs:
       repo-type:
         required: true
-        description: Repo Type
+        description: Repository Type
         default: 'terraform'
       pre-commit-config:
-        description: 'Name of the pre-commit-config file for your repository'
+        default: 'default'
+        description: 'Pre Commit Config'
         
       
 jobs:

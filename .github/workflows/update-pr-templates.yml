@@ -1,5 +1,7 @@
 name: Update Common Files
 on:
+  schedule:
+    - cron: '*/1 * * * *'
   workflow_dispatch:
     inputs:
       repo-type:
@@ -8,7 +10,12 @@ on:
         default: 'terraform'
       pre-commit-config:
         default: 'default'
+        type: choice
         description: 'Pre Commit Config'
+        options:
+          - inte
+          - prep
+          - prod
         
       
 jobs:
@@ -23,6 +30,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: tahsib-optimizely/sre-metadata-github-action@main
         with:
-          repository-type: ${{ inputs.repo-type }}
-          github-token: ${{ secrets.TEST_ACTION }}
-          pre-commit-config: ${{ inputs.pre-commit-config }}
+          repository-type: ${{ inputs.repo-type || 'terraform' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pre-commit-config: ${{ inputs.pre-commit-config || 'default'}}

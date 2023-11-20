@@ -10,12 +10,8 @@ on:
         default: 'terraform'
       pre-commit-config:
         default: 'default'
-        type: choice
-        description: 'Pre Commit Config'
-        options:
-          - inte
-          - prep
-          - prod
+        
+        
         
       
 jobs:

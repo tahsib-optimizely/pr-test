@@ -1,7 +1,5 @@
 name: Update Common Files
 on:
-  schedule:
-    - cron: '*/1 * * * *'
   workflow_dispatch:
     inputs:
       repo-type:
